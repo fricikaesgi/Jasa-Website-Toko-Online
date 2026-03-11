@@ -1,17 +1,29 @@
-const buttons = document.querySelectorAll(".btn-primary");
+const cards = document.querySelectorAll(".card");
 
-buttons.forEach(btn => {
+window.addEventListener("scroll",()=>{
 
-btn.addEventListener("mouseover",()=>{
+cards.forEach(card=>{
 
-btn.style.transform="scale(1.05)";
+const cardTop = card.getBoundingClientRect().top;
+
+const windowHeight = window.innerHeight;
+
+if(cardTop < windowHeight - 50){
+
+card.style.opacity="1";
+card.style.transform="translateY(0)";
+
+}
 
 })
 
-btn.addEventListener("mouseout",()=>{
-
-btn.style.transform="scale(1)";
-
 })
+
+
+cards.forEach(card=>{
+
+card.style.opacity="0";
+card.style.transform="translateY(40px)";
+card.style.transition="0.6s";
 
 })
